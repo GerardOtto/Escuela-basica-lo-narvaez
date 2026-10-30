@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notas · Escuela Básica Lo Narváez</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="topbar no-print">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Logo Escuela Básica Lo Narváez">
+      <div>
+        <div class="brand-sup">Servicio Local de Educación Pública Marga Marga</div>
+        <h1>Escuela Básica Lo Narváez</h1>
+        <div class="brand-sub">RBD 1491-5 · Plataforma de notas</div>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="field">
+        <span>Curso</span>
+        <select id="courseSelect"></select>
+      </label>
+      <button class="btn ghost" id="btnCourse" title="Editar curso y asignaturas">Curso…</button>
+      <button class="btn ghost" id="btnNewCourse" title="Crear un curso nuevo">+ Curso</button>
+      <span class="sep"></span>
+      <button class="btn" id="btnExcel" title="Descargar planilla Excel del curso">Exportar Excel</button>
+      <div class="menu">
+        <button class="btn ghost" id="btnMenu" aria-haspopup="true">Más ▾</button>
+        <div class="menu-list" id="menuList" hidden>
+          <button data-act="settings">Configuración general</button>
+          <button data-act="backup">Descargar respaldo (.json)</button>
+          <button data-act="restore">Restaurar respaldo…</button>
+          <button data-act="printAll">Imprimir informes del curso</button>
+          <button data-act="deleteCourse" class="danger">Eliminar este curso</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="workspace no-print">
+    <div class="sheet-head">
+      <div>
+        <h2 id="sheetTitle"></h2>
+        <div class="sheet-meta" id="sheetMeta"></div>
+      </div>
+      <div class="sheet-actions" id="sheetActions"></div>
+    </div>
+    <div class="sheet-bar" id="sheetBar" hidden></div>
+    <div class="sheet-wrap" id="sheetWrap"></div>
+    <p class="hint" id="sheetHint"></p>
+  </main>
+
+  <nav class="tabs no-print" id="tabs" aria-label="Planillas"></nav>
+
+  <div id="printArea" class="print-only"></div>
+
+  <!-- Diálogos -->
+  <dialog id="dlg">
+    <form method="dialog" id="dlgForm">
+      <h3 id="dlgTitle"></h3>
+      <div id="dlgBody"></div>
+      <menu>
+        <button value="cancel" class="btn ghost" formnovalidate>Cancelar</button>
+        <button value="ok" class="btn" id="dlgOk">Guardar</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <input type="file" id="fileRestore" accept=".json,application/json" hidden>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.4.0/exceljs.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

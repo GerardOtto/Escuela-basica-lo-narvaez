@@ -1,0 +1,4 @@
+# Planillas con datos reales de estudiantes: nunca subir al repositorio
+*.xlsx
+*.xls
+respaldo-notas-*.json
